@@ -1,0 +1,38 @@
+<ion-view>
+<ion-header-bar class="appstyle"> 
+	<div class="buttons">
+		<button class="button button-icon icon ion-ios7-arrow-back" ng-click="goHome()">
+		</button>
+	</div>
+	<h1 class="title">
+		Conflicts
+	</h1>
+	<div class="buttons">
+		<button class="button button-icon icon ion-wifi" ng-class="isOnline ? 'wifion' : 'wifioff'"></button>
+		<!--<button class="button button-icon icon fa fa-compress" ng-click="goToConflicts()">
+         {{conflictCount}}
+         </button>-->
+	</div>
+</ion-header-bar>
+
+<ion-content has-header="true" ng-cloak>
+<h1 style="text-align:center;" class="icon ionicons ion-android-inbox" ng-hide="hasConflicts"/>
+<h1 style="text-align:center;" ng-hide="hasConflicts">No Conflicts</h1>
+
+<div class="list" ng-show="hasConflicts">
+	<div class="item">First Name: {{currentRecord.fName}}</div>
+	<div class="item">Last Name: {{currentRecord.lName}}</div>
+</div>
+<button class="button button-full button-positive" ng-click="currentRecord.merge()" ng-show="hasConflicts">
+	Save
+</button>
+</ion-content>
+
+<ion-footer-bar class="appstyle">
+	<div class="button-bar">
+		<button class="button button-icon fa fa-mobile" ng-click="switchRecord(local)" ng-class="{'tabselected' : subTitle == 'Local'}" ng-disabled="(!hasConflicts)"/>
+		<button class="button button-icon fa fa-cloud" ng-click="switchRecord(remote)" ng-class="{'tabselected' : subTitle == 'Server'}" ng-disabled="(!hasConflicts)"/>
+	</div>
+</ion-footer-bar>
+
+</ion-view>

@@ -1,0 +1,74 @@
+<ion-view>
+<ion-side-menus>
+  <!-- Center content -->
+  <ion-side-menu-content>
+<ion-header-bar class="appstyle" >
+	<div class="buttons">
+		<button class="button button-icon icon ion-ios7-drag" ng-click="openMenu()"></button>
+	</div> 	
+	<h1 class="title">
+		Leads 	
+	</h1>
+	<div class="buttons">
+		<button class="button button-icon icon ion-wifi" ng-class="isOnline ? 'wifion' : 'wifioff'"></button>
+		<!--<button class="button button-icon icon ion-ios7-bolt" ng-click="goToConflicts()">
+			{{conflictCount}}			
+		</button>				
+		<!--<button class="button button-icon fa fa-ellipsis-v" ng-model="showOverflow" ng-click="showOverflow = !showOverflow"></button>	-->	
+	</div>
+</ion-header-bar>
+<!--
+<ion-list class="ddl dark" ng-class="{'visible': showOverflow}">
+      <ion-item class="dark item" ng-click="toSettings()">Settings</ion-item>
+</ion-list>
+-->
+<ion-header-bar class="bar-subheader item-input-inset" style="position:absolute;">
+	<label class="item-input-wrapper">
+		<i class="icon ion-search placeholder-icon"></i>
+		<input type="text" ng-model="filter.input" placeholder="Filter">							
+	</label>
+</ion-header-bar>	
+<ion-content has-header="true">
+	{{filterInput}}
+	<ion-list>
+		<ion-item class="item item-divider" ng-repeat-start="(firstLetter, leads) in leads" ng-show="filter.input == '' || filter.input == null" style="text-decoration:none; font-weight:300;">
+			{{firstLetter}}
+		</ion-item>
+		<ion-item class="item item-icon-right" ng-repeat="lead in leads | filter: namefilter " bindonce ng-click="detail(lead.sfid, lead.ctid)">
+			{{lead.fullname}}
+			<i class="icon ion-ios7-cloud" style="color:#add8e6;" ng-show="lead.inSalesforce"></i>
+			<i class="icon ion-iphone" style="color:#62b4cf; font-size:45px;" ng-class="{bumpiconleft : lead.inSalesforce}" ng-show="lead.inDevice"></i>
+		</ion-item>
+		<div ng-repeat-end></div>
+	</ion-list>
+
+</ion-content>
+<ion-footer-bar class="appstyle">
+	<div class="button-bar">
+		<button class="button button-icon icon ion-ios7-plus-outline" ng-click="createNewLead()"></button>
+	</div>
+</ion-footer-bar>
+</ion-side-menu-content>
+<ion-side-menu class="appstyle" side="left">
+	<label class="menu-title" >Lead Contact Manager</label>
+	<ion-list class="appstyle">			
+		<ion-item class="appstyle item item-icon-right"  ng-click="goToConflicts()">
+			<i class="icon ion-ios7-bolt"></i>
+			Conflicts
+		</ion-item>
+		<ion-item class="appstyle item item-icon-right" ng-click="refresh()">
+			<i class="icon ion-ios7-reload"></i>
+			Refresh
+		</ion-item>
+		<ion-item class="appstyle item item-icon-right" ng-click="toSettings()">
+			<i class="icon ion-ios7-gear"></i>
+			Settings
+		</ion-item>
+		<ion-item class="appstyle item item-icon-right" ng-click="logout()">
+			Logout
+			<i class="icon ion-log-out"></i>
+		</ion-item>
+	</ion-list>
+  </ion-side-menu>
+</ion-side-menus>
+</ion-view>

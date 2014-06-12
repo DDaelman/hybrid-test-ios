@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	<base href=""/>
+	<!-- include jquery mobile -->
+	<link rel="stylesheet" href="jquery/jquery.mobile-1.4.2.min.css" />
+	<script src="jquery/jquery-2.1.1.min.js"></script>
+
+	<!-- Include cordova. -->
+	<script src="scripts/cordova-2.3.0.js"></script>
+	<!-- Include forcetk.mobilesdk for REST transaction support -->
+	<script src="scripts/forcetk.mobilesdk.js"></script>
+	<!-- Include cordova plugins -->
+	<script src="scripts/cordova.force.js"></script>
+
+	<!-- SmartSync & dependencies -->
+	<script src="scripts/underscore.1.6.0.min.js"></script>
+	<script src="scripts/backbone-1.1.2.min.js"></script>
+	<script src="scripts/smartsync.js"></script>
+
+	<!-- Ionic UI and Angular-->
+	<link href="scripts/ionic-ui/css/ionic.css" rel="stylesheet"/>
+	<script src="scripts/ionic-ui/js/ionic.bundle.js"></script>
+	<script src="scripts/angular-route.min.js"></script>
+	<link href="scripts/custom-ui/custom.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="scripts/font-awesome-4.1.0/css/font-awesome.css">
+
+	<!-- App-specific JS -->
+	<script src="scripts/queue.js"></script>
+	<script src="scripts/init.js"></script>
+	<!-- Models -->
+	<script src="app/modules/models.js"></script>
+	<!-- Services -->
+	<script src="app/modules/services.js"></script>
+	<script src="app/services/contactservice.js"></script>
+	<script src="app/services/devicecontactservice.js"></script>
+	<script src="app/services/dataoperationservice.js"></script>
+	<script src="app/services/leadservice.js"></script>
+	<script src="app/services/customobjectservice.js"></script>
+	<!-- Controllers -->
+	<script src="app/modules/controllers.js"></script>
+	<script src="app/controllers/conflictcontroller.js"></script>	
+	<script src="app/controllers/leadlistcontroller.js"></script>
+	<script src="app/controllers/leadcontroller.js"></script>
+	<script src="app/controllers/toplevelcontroller.js"></script>
+	<!-- App -->
+	<script src="app/modules/app.js"></script>
+</head>
+<body ng-controller="TopLevelController" class="app" ng-cloak>
+	<ion-nav-view animation="slide-left-right"></ion-nav-view>
+</body>
+</html>

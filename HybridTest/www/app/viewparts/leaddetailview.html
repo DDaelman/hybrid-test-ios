@@ -1,0 +1,89 @@
+<script id="confirm.html" type="text/ng-template">
+	<div class="modal" style="height:89px; max-height:89px; min-height:89px; top:30%; min-width:50%; width:50%; max-width:50%; left:25%;">
+		<ion-header-bar class="bar-dark">
+			<h1 class="title">Are you sure?</h1>
+		</ion-header-bar>
+		<ion-content style="height:80px; max-height:80px;">
+			<div class="button-bar">
+				<button class="button button-dark" style="border-color:dark-gray;" ng-click="confirmDelete(true)">Yes</button>
+				<button class="button button-dark" style="border-color:gray;" ng-click="confirmDelete(false)">No</button>
+			</div>
+		</ion-content>
+	</div>
+</script>
+<ion-view ng-form="leadform">
+<ion-header-bar class="appstyle">
+	<div class="buttons">
+		<button class="button button-icon icon ion-ios7-arrow-back" ng-click="goHome()">
+		</button>
+	</div>
+	<h1 class="title">
+		{{lead.fName}} {{lead.lName}}	
+	</h1>
+	<div class="buttons">
+		<button class="button button-icon icon ion-wifi" ng-class="isOnline ? 'wifion' : 'wifioff'"></button>
+		<!--<button class="button button-icon icon fa fa-compress" ng-click="goToConflicts()">
+			{{conflictCount}}			
+		</button>-->
+	</div>
+</ion-header-bar>
+<ion-content has-header="true" has-footer="true">
+	<div id="leadform" class="list">
+	  <div class="item item-input large-item">
+	    <span class="input-label">
+	    	First Name
+	    	<i class="fa fa-pencil balanced pull-right" ng-show="leadform.firstname.$dirty"/>
+	    </span>
+	    <input type="text" ng-model="lead.fName" name="firstname">	    
+	  </div>
+	  <label class="item item-input large-item">
+	    <span class="input-label">
+	    	Last Name
+	    	<i class="fa fa-pencil balanced pull-right" ng-show="(leadform.lastname.$dirty && !leadform.lastname.$error.required)"/>
+	    	<i class="ion-alert assertive pull-right" ng-show="leadform.lastname.$error.required"/>
+	    </span>
+	    <input type="text" ng-model="lead.lName" name="lastname" required>	    
+	  </label>
+	  <div class="item item-input item-button-right large-item">
+	    <span class="input-label">
+	    	Phone
+	    	<i class="fa fa-pencil balanced pull-right" ng-show="(leadform.phone.$dirty && !leadform.phone.$error.required)"/>
+	    	<i class="ion-alert assertive pull-right" ng-show="leadform.phone.$error.required"/>
+	    </span>
+	    <input type="text" ng-model="lead.phone" style="max-width:130px;" name="phone" required/>	    
+	    <button class="button button-large" style="height:57px;" ng-click="callphone()" ng-hide="isNew">
+	    	<i class="icon ion-android-call"></i>
+	    </button>
+	  </div>
+	  <label class="item item-input large-item">
+	    <span class="input-label">
+	    	Company
+	    	<i class="fa fa-pencil balanced pull-right" ng-show="leadform.company.$dirty"/>
+	    </span>
+	    <input type="text" ng-model="lead.company" name="company">	    
+	  </label>
+	  <label class="item item-input large-item" ng-show="inSalesforce || isNew">
+	    <span class="input-label">
+	    	Status
+	    	<i class="fa fa-pencil balanced pull-right" ng-show="leadform.status.$dirty"/>
+	    </span>
+	    <select ng-model="lead.status" ng-options="option.value as option.label for option in statusOptions" name="status">
+		</select>		
+	  </label>
+	</div>
+</ion-content>
+<ion-footer-bar class="appstyle">
+		<div class="button-bar">
+		<button class="button button-icon icon ion-person-add" ng-click="addToDevice()" ng-hide="inDevice || isNew"></button>
+		<button class="button button-icon icon ion-ios7-person" ng-click="showOnDevice()" ng-show="inDevice"></button>
+		<button class="button button-icon icon ion-ios7-cloud-upload" ng-click="edit()" ng-show="inSalesforce || isNew" ng-disabled="leadform.$invalid"></button>
+		<button class="button button-icon icon ion-ios7-trash" ng-click="delete()"  ng-show="inSalesforce"></button>
+		<button class="button button-icon" ng-click="addToSalesforce()"  ng-hide="inSalesforce || isNew">
+				<div class="fa-stack">
+				<i class="icon fa fa-cloud fa-stack-1x"></i>
+				<i class="fa fa-plus fa-stack-1x dark" style="margin-left:2px;"></i>		
+				</div>								
+		</button>
+		</div>
+</ion-footer-bar>
+</ion-view>

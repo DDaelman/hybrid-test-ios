@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8DBA7555-99E2-447E-940F-E3CF45B39BF9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HybridTest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F943D127-E547-477C-A399-53A81A7298F8</key>
+		<string>https://github.com/DDaelman/hybrid-test-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>HybridTest.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F943D127-E547-477C-A399-53A81A7298F8</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/DDaelman/hybrid-test-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F943D127-E547-477C-A399-53A81A7298F8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F943D127-E547-477C-A399-53A81A7298F8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HybridTest</string>
+		</dict>
+	</array>
+</dict>
+</plist>
